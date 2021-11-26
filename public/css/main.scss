@@ -1,0 +1,51 @@
+html,
+body,
+#root,
+.App {
+    height: 100%;
+}
+
+.menuItem {
+    // font-size: 1.25rem;
+}
+
+.menuItemWrapper {
+    transition: 0.4s;
+}
+.menuItemWrapper:hover {
+    background-color: #f5f5f5;
+}
+
+.newsletterWrapper {
+    // margin-top: 15%;
+}
+
+.mailchimp {
+    input {
+        background: #494949;
+        border: none !important;
+        color: #f5f5f5;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        font-weight: 500;
+    }
+    button {
+        min-width: 130px;
+        border: solid 1px #494949;
+        padding: 0.75rem 1rem;
+        margin-top: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        width: 100%;
+    }
+    .msg-alert {
+        margin-top: 1rem;
+    }
+}
+
+.mainImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
