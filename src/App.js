@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Menu from "./components/menu/menu";
 import Hero from "./components/hero";
+import Galerie from "./components/gallery/fullGalery";
 
 function App() {
     return (
@@ -13,7 +14,8 @@ function App() {
                         <Menu klasse="md:fixed md:w-1/4"></Menu>
                     </div>
                     <div className="md:col-span-3">
-                        <Hero></Hero>
+                        {/* <Hero></Hero> */}
+                        <Galerie></Galerie>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,9 @@ const Hero = (props) => {
             {postDataBild && (
                 <img
                     className="mainImg"
-                    src={urlFor(postDataBild[Math.floor(Math.random() * postDataBild.length)].image)}
+                    // src={urlFor(postDataBild[Math.floor(Math.random() * postDataBild.length)].image)}
+                    // src={urlFor(postDataBild[1].image)}
+                    src={urlFor(postData[0].landingImage)}
                     alt=""
                     style={{ width: size.width + "px", height: size.height + "px" }}
                 />

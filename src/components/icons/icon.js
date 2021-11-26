@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 
 function Icon(props) {
-    return <i className={`bi bi-${props.icon} text-text ${props.margin}`}></i>;
+    return (
+        <i
+            width={props.width}
+            height={props.height}
+            className={`bi bi-${props.icon} ${props.margin} ${props.color}`}
+        ></i>
+    );
 }
 
 export default Icon;

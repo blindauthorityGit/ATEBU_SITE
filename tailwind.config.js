@@ -8,6 +8,7 @@ module.exports = {
             colors: {
                 beige: "#FAF6E9",
                 darkbeige: "#EDE9DD",
+                darkerbeige: "#B2AC97",
                 brightbeige: "#FFFDF6",
                 brightgrey: "#F5F5F5",
                 text: "#494949",
