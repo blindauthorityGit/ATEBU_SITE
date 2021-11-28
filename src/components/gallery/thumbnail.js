@@ -1,8 +1,12 @@
 function Thumbnail(props) {
     return (
-        <div className={`thumbnailWrapper`}>
+        <div
+            // onClick={(e) => console.log(e.target)}
+            className={`thumbnailWrapper  ${props.klasse}`}
+            onClick={props.onClick}
+        >
             <div className={`thumbnail`}>
-                <img src={props.url} alt="" />
+                <img className={props.animation} src={props.url} data-index={props.index} alt="" />
             </div>
             <div className="textWrapper">
                 <h3>{props.title}</h3>

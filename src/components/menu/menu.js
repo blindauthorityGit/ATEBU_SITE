@@ -63,18 +63,18 @@ const Menu = (props) => {
             <MenuLink url="about" title="About"></MenuLink>
             <MenuLink url="news" title="News"></MenuLink>
             <MenuLink url="kontakt" title="Kontakt"></MenuLink>
-            <hr className="w-1/2 mb-5 mt-5" />
+            <hr className="w-1/2 mb-5" />
             <div className="iconWrapper mt-5">
                 <Icon icon="facebook" margin="mr-8" color="text-text"></Icon>
                 <Icon icon="instagram" color="text-text"></Icon>
             </div>
             <div
                 className="newsletterContainer absolute flex justify-center w-8/12"
-                style={{ top: size.height / 1.75 + "px" }}
+                style={{ top: size.height / 1.85 + "px" }}
             >
                 <Newsletter />
             </div>
-            <div className="kontaktWrapper flex text-xs absolute bottom-10">
+            <div className="kontaktWrapper flex text-xs absolute bottom-10 leading-loose">
                 <div className="left">
                     <hr className="mb-5" />
                     <strong>Atelier Buchner</strong>
@@ -84,7 +84,9 @@ const Menu = (props) => {
                     2823 Pitten
                     <div className="detailWrapper flex mt-3">
                         <Icon icon="telephone-fill" margin="mr-4" color="text-darkerbeige"></Icon>
-                        <div className="right">+43 664 94 45 19</div>
+                        <div className="right">
+                            <a href="tel:+436509445140"> +43 650 94 45 140</a>
+                        </div>
                     </div>
                     <div className="detailWrapper flex">
                         <Icon icon="envelope-fill" margin="mr-4" color="text-darkerbeige"></Icon>
@@ -96,6 +98,19 @@ const Menu = (props) => {
                         <Icon icon="whatsapp" margin="mr-4" color="text-darkerbeige"></Icon>
                         <div className="right">
                             <a href="https://wa.me/436509445140">Auf WhatsApp schreiben</a>
+                        </div>
+                    </div>
+                    <hr className="mb-5 mt-5" />
+                    <div className="detailWrapper mt-5 flex">
+                        <div className="left mr-5">
+                            <Link className="underline" to="impressum">
+                                Impressum
+                            </Link>
+                        </div>
+                        <div className="right">
+                            <Link className="underline" to="datenschutz">
+                                Datenschutz
+                            </Link>
                         </div>
                     </div>
                     <p></p>

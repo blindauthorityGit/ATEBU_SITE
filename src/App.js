@@ -5,6 +5,9 @@ import Menu from "./components/menu/menu";
 import Hero from "./components/hero";
 import Galerie from "./components/gallery/fullGalery";
 
+import { AnimationOnScroll } from "react-animation-on-scroll";
+import "animate.css/animate.min.css";
+
 function App() {
     return (
         <Router>
@@ -14,8 +17,10 @@ function App() {
                         <Menu klasse="md:fixed md:w-1/4"></Menu>
                     </div>
                     <div className="md:col-span-3">
-                        {/* <Hero></Hero> */}
-                        <Galerie></Galerie>
+                        <Hero></Hero>
+                        <AnimationOnScroll animateIn="animate__fadeIn">
+                            <Galerie></Galerie>
+                        </AnimationOnScroll>
                     </div>
                 </div>
             </div>
