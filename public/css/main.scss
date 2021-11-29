@@ -50,9 +50,17 @@ body,
     height: 100%;
 }
 
+hr {
+    border-color: #14100f47;
+}
+
 .thumbnail {
     transition: all ease-in-out 200ms;
     filter: grayscale(1);
+
+    img {
+        opacity: 0;
+    }
 }
 
 .thumbnailWrapper {

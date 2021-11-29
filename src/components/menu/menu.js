@@ -7,6 +7,8 @@ import MenuLink from "./link";
 import Icon from "../icons/icon";
 import Newsletter from "./newsletter";
 
+import fadeIn from "../generalFunctions/animationRandom.js";
+
 import Logo from "../../assets/logo.svg";
 
 const Menu = (props) => {
@@ -19,6 +21,19 @@ const Menu = (props) => {
     const builder = imageUrlBuilder(sanityClient);
     function urlFor(source) {
         return builder.image(source);
+    }
+
+    function fadeIn(e) {
+        console.log(e.target);
+        setTimeout(() => {
+            e.target.classList.add("animate__animated", "animate__fadeIn");
+        }, Math.random() * 200);
+
+        // Array.from(document.getElementsByClassName("thumbnail")).map((e, i) => {
+        //     setTimeout(() => {
+        //         e.classList.add("animate__animated", "animate__fadeIn");
+        //     }, Math.random() * 200);
+        // });
     }
 
     useEffect(() => {
@@ -50,20 +65,20 @@ const Menu = (props) => {
     }, [size]);
 
     return (
-        <div className={`flex flex-col min-h-full pt-10  items-center ${props.klasse}`}>
+        <div className={`flex flex-col min-h-full pt-10  items-center ${props.klasse}`} style={props.style}>
             <div className="logoWrapper mb-10 w-24 h-24">
                 <img className=" w-24 h-24 animate__animated animate__fadeIn" src={Logo}></img>
 
                 {/* <img className=" w-24 h-24 animate__animated animate__fadeIn" src={urlFor(postData[0].Logo)}></img> */}
             </div>
 
-            <hr className="w-1/2 mb-5" />
+            <hr className="w-3/4 mb-5" />
             <MenuLink url="galerie" title="Galerie"></MenuLink>
             <MenuLink class="mb-10" url="kurse" title="Kurse"></MenuLink>
             <MenuLink url="about" title="About"></MenuLink>
             <MenuLink url="news" title="News"></MenuLink>
             <MenuLink url="kontakt" title="Kontakt"></MenuLink>
-            <hr className="w-1/2 mb-5" />
+            <hr className="w-3/4 mb-5" />
             <div className="iconWrapper mt-5">
                 <Icon icon="facebook" margin="mr-8" color="text-text"></Icon>
                 <Icon icon="instagram" color="text-text"></Icon>
@@ -74,8 +89,8 @@ const Menu = (props) => {
             >
                 <Newsletter />
             </div>
-            <div className="kontaktWrapper flex text-xs absolute bottom-10 leading-loose">
-                <div className="left">
+            <div className="kontaktWrapper flex text-xs absolute bottom-10 leading-loose w-3/4">
+                <div className="left w-100">
                     <hr className="mb-5" />
                     <strong>Atelier Buchner</strong>
                     <br />

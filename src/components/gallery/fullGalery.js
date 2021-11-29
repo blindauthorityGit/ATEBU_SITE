@@ -14,6 +14,7 @@ const Galerie = (props) => {
     const [size, setSize] = useState(null);
 
     const refRef = useRef(null);
+    const refThumbnail = useRef(null);
 
     const builder = imageUrlBuilder(sanityClient);
     function urlFor(source) {
@@ -35,6 +36,18 @@ const Galerie = (props) => {
         console.log(Number(e.target.dataset.index), postData[Number(e.target.dataset.index)]);
     }
 
+    function fadeIn(e) {
+        setTimeout(() => {
+            e.target.classList.add("animate__animated", "animate__fadeIn");
+        }, Math.random() * 200);
+
+        // Array.from(document.getElementsByClassName("thumbnail")).map((e, i) => {
+        //     setTimeout(() => {
+        //         e.classList.add("animate__animated", "animate__fadeIn");
+        //     }, Math.random() * 200);
+        // });
+    }
+
     useEffect(() => {
         sanityClient
             .fetch(`*[_type == 'Bild']`)
@@ -42,10 +55,10 @@ const Galerie = (props) => {
                 setPostData(shuffleArray(data));
                 console.log(data);
                 setLoading(false);
+                console.log(Array.from(document.getElementsByClassName("thumbnail")));
             })
             .catch(console.error);
         setSize(window.innerWidth);
-        console.log(window.innerWidth);
     }, []);
 
     useLayoutEffect(() => {
@@ -68,7 +81,11 @@ const Galerie = (props) => {
         <>
             {loading && <Loader></Loader>}
             {!loading && (
-                <div className={`galerie grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2`} ref={refRef}>
+                <div
+                    onLoad={(e) => fadeIn(e)}
+                    className={`galerie grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 mr-8 mt-8`}
+                    ref={refRef}
+                >
                     {postData &&
                         postData.map((e, i) =>
                             i === 0 ? (
@@ -81,12 +98,13 @@ const Galerie = (props) => {
                                     }
                                 >
                                     <Thumbnail
-                                        animation="animate__animated animate__fadeIn"
-                                        klasse="col-span-2 row-span-2"
+                                        // animation="animate__animated animate__fadeIn"
+                                        klasse="md:col-span-2 md:row-span-2"
                                         url={urlFor(e.image).width(800).height(800)}
                                         key={"key" + i}
                                         index={i}
                                         onClick={(e) => targetLock(e)}
+                                        ref={refThumbnail}
                                     ></Thumbnail>
                                 </Suspense>
                             ) : (
@@ -96,11 +114,12 @@ const Galerie = (props) => {
                                     }
                                 >
                                     <Thumbnail
-                                        animation="animate__animated animate__fadeIn"
+                                        // animation="animate__animated animate__fadeIn"
                                         url={urlFor(e.image).width(400).height(400)}
                                         key={"key" + i}
                                         index={i}
                                         onClick={(e) => targetLock(e)}
+                                        ref={refThumbnail}
                                     ></Thumbnail>
                                 </Suspense>
                             )

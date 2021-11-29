@@ -45,11 +45,19 @@ body,
   height: 100%;
 }
 
+hr {
+  border-color: #14100f47;
+}
+
 .thumbnail {
   -webkit-transition: all ease-in-out 200ms;
   transition: all ease-in-out 200ms;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
+}
+
+.thumbnail img {
+  opacity: 0;
 }
 
 .thumbnailWrapper {
