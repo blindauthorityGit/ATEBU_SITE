@@ -29,12 +29,12 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <div className="grid lg:grid-cols-5 w-100">
+                <div className="grid lg:grid-cols-12 w-full">
                     {/* <div className="md:col-span-1"> */}
-                    <div className="md:col-span-1" ref={menuRef}>
+                    <div className="md:col-span-2" ref={menuRef}>
                         <Menu klasse="md:fixed" style={{ width: menuWidth }}></Menu>
                     </div>
-                    <div className="md:col-span-4">
+                    <div className="md:col-span-10">
                         <Routes>
                             {/* <Hero></Hero> */}
                             {/* <AnimationOnScroll animateIn="animate__fadeIn"> */}

@@ -12,6 +12,7 @@ module.exports = {
                 brightbeige: "#FFFDF6",
                 brightgrey: "#F5F5F5",
                 text: "#494949",
+                brighttext: "#A6A6A6",
             },
             container: {
                 center: true,

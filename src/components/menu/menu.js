@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import sanityClient from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
 import { Link } from "react-router-dom";
@@ -17,6 +17,8 @@ const Menu = (props) => {
         width: null,
         height: null,
     });
+
+    const linkRef = useRef(null);
 
     const builder = imageUrlBuilder(sanityClient);
     function urlFor(source) {
@@ -61,11 +63,16 @@ const Menu = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log(size);
-    }, [size]);
+        console.log(document.getElementsByClassName("menuItem"));
+        Array.from(document.getElementsByClassName("menuItem")).map((e, i) => {
+            setTimeout(() => {
+                e.classList.add("slide-in-left");
+            }, Math.random() * 200);
+        });
+    }, []);
 
     return (
-        <div className={`flex flex-col min-h-full pt-10  items-center ${props.klasse}`} style={props.style}>
+        <div className={`flex flex-col min-h-full pt-10  items-center ${props.klasse} bg-gray-100`} style={props.style}>
             <div className="logoWrapper mb-10 w-24 h-24">
                 <img className=" w-24 h-24 animate__animated animate__fadeIn" src={Logo}></img>
 
@@ -73,7 +80,7 @@ const Menu = (props) => {
             </div>
 
             <hr className="w-3/4 mb-5" />
-            <MenuLink url="galerie" title="Galerie"></MenuLink>
+            <MenuLink ref={linkRef} url="galerie" title="Galerie"></MenuLink>
             <MenuLink class="mb-10" url="kurse" title="Kurse"></MenuLink>
             <MenuLink url="about" title="About"></MenuLink>
             <MenuLink url="news" title="News"></MenuLink>
